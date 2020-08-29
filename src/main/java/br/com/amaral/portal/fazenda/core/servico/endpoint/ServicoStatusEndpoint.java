@@ -1,7 +1,9 @@
 package br.com.amaral.portal.fazenda.core.servico.endpoint;
 
-import br.com.amaral.portal.fazenda.core.servico.wrapper.ServicoHistoricoWrapper;
+import br.com.amaral.portal.fazenda.core.autorizador.domain.Autorizador;
+import br.com.amaral.portal.fazenda.core.autorizador.service.AutorizadorService;
 import br.com.amaral.portal.fazenda.core.servico.service.ServicoHistoricoService;
+import br.com.amaral.portal.fazenda.core.servico.wrapper.ServicoHistoricoWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,9 @@ public class ServicoStatusEndpoint {
     @Autowired
     private ServicoHistoricoService servicoHistoricoService;
 
+    @Autowired
+    private AutorizadorService autorizadorService;
+
     @GetMapping
     public ResponseEntity<List<ServicoHistoricoWrapper>> findByStatusAtual() {
 
@@ -37,6 +42,12 @@ public class ServicoStatusEndpoint {
                                                                     @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhFim) {
 
         return ResponseEntity.ok(servicoHistoricoService.findByPeriodo(dhInicio, dhFim));
+    }
+
+    @GetMapping("indisponibilidade")
+    public List<Autorizador> findByIndisponibilidade() {
+
+        return autorizadorService.findByIndisponibilidade();
     }
 
 }
