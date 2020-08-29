@@ -18,4 +18,9 @@ public class ServicoHistoricoService {
         servicoHistoricoRepository.saveAll(historicos);
     }
 
+    public List<ServicoHistorico> findByStatusAtual() {
+
+        return servicoHistoricoRepository.findByStatusAtual();
+    }
+
 }
