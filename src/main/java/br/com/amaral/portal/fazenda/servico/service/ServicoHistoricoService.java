@@ -23,4 +23,9 @@ public class ServicoHistoricoService {
         return servicoHistoricoRepository.findByStatusAtual();
     }
 
+    public List<ServicoHistorico> findByAutorizador(String dsAutorizador) {
+
+        return servicoHistoricoRepository.findByAutorizador(dsAutorizador);
+    }
+
 }

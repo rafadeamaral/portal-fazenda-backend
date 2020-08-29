@@ -32,9 +32,7 @@ public class ServicoStatusService {
                     .filter(servicoHistorico -> servicoHistorico.getAutorizador().equals(autorizador))
                     .map(this::toServicoWrapper).collect(Collectors.toList());
 
-            var wrapper = new ServicoStatusWrapper();
-            wrapper.setAutorizador(autorizador);
-            wrapper.setServicos(servicos);
+            var wrapper = toServicoStatusWrapper(autorizador, servicos);
 
             status.add(wrapper);
         });
@@ -50,6 +48,29 @@ public class ServicoStatusService {
         wrapper.setIdServico(servico.getIdServico());
         wrapper.setDsServico(servico.getDsServico());
         wrapper.setStatus(servicoHistorico.getStatus());
+
+        return wrapper;
+    }
+
+    public ServicoStatusWrapper findByAutorizador(String dsAutorizador) {
+
+        List<ServicoHistorico> historicos = servicoHistoricoService.findByAutorizador(dsAutorizador);
+
+        if (historicos.isEmpty()) {
+
+            return null;
+        }
+
+        var servicos = historicos.stream().map(this::toServicoWrapper).collect(Collectors.toList());
+
+        return toServicoStatusWrapper(historicos.get(0).getAutorizador(), servicos);
+    }
+
+    private ServicoStatusWrapper toServicoStatusWrapper(Autorizador autorizador, List<ServicoWrapper> servicos) {
+
+        var wrapper = new ServicoStatusWrapper();
+        wrapper.setAutorizador(autorizador);
+        wrapper.setServicos(servicos);
 
         return wrapper;
     }
