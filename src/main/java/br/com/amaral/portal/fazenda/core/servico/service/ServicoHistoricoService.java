@@ -1,12 +1,12 @@
-package br.com.amaral.portal.fazenda.servico.service;
+package br.com.amaral.portal.fazenda.core.servico.service;
 
-import br.com.amaral.portal.fazenda.autorizador.domain.Autorizador;
-import br.com.amaral.portal.fazenda.servico.domain.Servico;
-import br.com.amaral.portal.fazenda.servico.domain.ServicoHistorico;
-import br.com.amaral.portal.fazenda.servico.wrapper.ServicoHistoricoWrapper;
-import br.com.amaral.portal.fazenda.servico.wrapper.ServicoStatusWrapper;
-import br.com.amaral.portal.fazenda.servico.wrapper.ServicoWrapper;
-import br.com.amaral.portal.fazenda.servico.repository.ServicoHistoricoRepository;
+import br.com.amaral.portal.fazenda.core.autorizador.domain.Autorizador;
+import br.com.amaral.portal.fazenda.core.servico.domain.Servico;
+import br.com.amaral.portal.fazenda.core.servico.domain.ServicoHistorico;
+import br.com.amaral.portal.fazenda.core.servico.wrapper.ServicoHistoricoWrapper;
+import br.com.amaral.portal.fazenda.core.servico.wrapper.ServicoStatusWrapper;
+import br.com.amaral.portal.fazenda.core.servico.wrapper.ServicoWrapper;
+import br.com.amaral.portal.fazenda.core.servico.repository.ServicoHistoricoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

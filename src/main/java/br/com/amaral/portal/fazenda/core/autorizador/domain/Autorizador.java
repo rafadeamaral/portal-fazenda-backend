@@ -1,4 +1,4 @@
-package br.com.amaral.portal.fazenda.autorizador.domain;
+package br.com.amaral.portal.fazenda.core.autorizador.domain;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

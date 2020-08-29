@@ -1,6 +1,6 @@
-package br.com.amaral.portal.fazenda.servico.scheduler;
+package br.com.amaral.portal.fazenda.core.servico.scheduler;
 
-import br.com.amaral.portal.fazenda.servico.service.ServicoService;
+import br.com.amaral.portal.fazenda.core.servico.service.ServicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

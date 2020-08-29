@@ -1,6 +1,6 @@
-package br.com.amaral.portal.fazenda.servico.wrapper;
+package br.com.amaral.portal.fazenda.core.servico.wrapper;
 
-import br.com.amaral.portal.fazenda.autorizador.domain.Autorizador;
+import br.com.amaral.portal.fazenda.core.autorizador.domain.Autorizador;
 import lombok.Getter;
 import lombok.Setter;
 

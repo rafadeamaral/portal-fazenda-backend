@@ -1,6 +1,6 @@
-package br.com.amaral.portal.fazenda.servico.wrapper;
+package br.com.amaral.portal.fazenda.core.servico.wrapper;
 
-import br.com.amaral.portal.fazenda.servico.domain.ServicoStatus;
+import br.com.amaral.portal.fazenda.core.servico.domain.ServicoStatus;
 import lombok.Getter;
 import lombok.Setter;
 

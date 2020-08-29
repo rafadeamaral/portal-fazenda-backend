@@ -1,6 +1,6 @@
-package br.com.amaral.portal.fazenda.servico.repository;
+package br.com.amaral.portal.fazenda.core.servico.repository;
 
-import br.com.amaral.portal.fazenda.servico.domain.ServicoHistorico;
+import br.com.amaral.portal.fazenda.core.servico.domain.ServicoHistorico;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

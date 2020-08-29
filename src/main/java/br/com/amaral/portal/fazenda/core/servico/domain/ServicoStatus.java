@@ -1,4 +1,4 @@
-package br.com.amaral.portal.fazenda.servico.domain;
+package br.com.amaral.portal.fazenda.core.servico.domain;
 
 public enum ServicoStatus {
     VERDE,

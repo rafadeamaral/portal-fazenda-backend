@@ -1,7 +1,7 @@
-package br.com.amaral.portal.fazenda.autorizador.service;
+package br.com.amaral.portal.fazenda.core.autorizador.service;
 
-import br.com.amaral.portal.fazenda.autorizador.domain.Autorizador;
-import br.com.amaral.portal.fazenda.autorizador.repository.AutorizadorRepository;
+import br.com.amaral.portal.fazenda.core.autorizador.domain.Autorizador;
+import br.com.amaral.portal.fazenda.core.autorizador.repository.AutorizadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

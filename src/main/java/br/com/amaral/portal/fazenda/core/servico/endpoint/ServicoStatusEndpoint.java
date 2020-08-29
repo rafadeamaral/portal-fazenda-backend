@@ -1,7 +1,7 @@
-package br.com.amaral.portal.fazenda.servico.endpoint;
+package br.com.amaral.portal.fazenda.core.servico.endpoint;
 
-import br.com.amaral.portal.fazenda.servico.wrapper.ServicoHistoricoWrapper;
-import br.com.amaral.portal.fazenda.servico.service.ServicoHistoricoService;
+import br.com.amaral.portal.fazenda.core.servico.wrapper.ServicoHistoricoWrapper;
+import br.com.amaral.portal.fazenda.core.servico.service.ServicoHistoricoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;

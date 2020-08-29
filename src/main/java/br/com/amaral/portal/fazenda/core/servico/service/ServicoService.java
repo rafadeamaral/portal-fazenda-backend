@@ -1,11 +1,11 @@
-package br.com.amaral.portal.fazenda.servico.service;
+package br.com.amaral.portal.fazenda.core.servico.service;
 
-import br.com.amaral.portal.fazenda.autorizador.domain.Autorizador;
-import br.com.amaral.portal.fazenda.autorizador.service.AutorizadorService;
-import br.com.amaral.portal.fazenda.servico.domain.Servico;
-import br.com.amaral.portal.fazenda.servico.domain.ServicoHistorico;
-import br.com.amaral.portal.fazenda.servico.domain.ServicoStatus;
-import br.com.amaral.portal.fazenda.servico.repository.ServicoRepository;
+import br.com.amaral.portal.fazenda.core.autorizador.domain.Autorizador;
+import br.com.amaral.portal.fazenda.core.autorizador.service.AutorizadorService;
+import br.com.amaral.portal.fazenda.core.servico.domain.Servico;
+import br.com.amaral.portal.fazenda.core.servico.domain.ServicoHistorico;
+import br.com.amaral.portal.fazenda.core.servico.domain.ServicoStatus;
+import br.com.amaral.portal.fazenda.core.servico.repository.ServicoRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
