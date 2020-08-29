@@ -1,5 +1,6 @@
 package br.com.amaral.portal.fazenda.servico.domain;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 @Entity(name = "servico")
 public class Servico {
 

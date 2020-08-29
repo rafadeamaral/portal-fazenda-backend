@@ -3,10 +3,14 @@ package br.com.amaral.portal.fazenda.servico.domain;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
-public class ServicoWrapper extends Servico {
+public class ServicoWrapper {
 
-    private ServicoStatus status;
+    private Servico servico;
+
+    private List<ServicoStatusWrapper> status;
 
 }
