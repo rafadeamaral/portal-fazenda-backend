@@ -9,9 +9,9 @@ import br.com.amaral.portal.fazenda.servico.repository.ServicoRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -25,6 +25,12 @@ import static java.util.Objects.nonNull;
 @Service
 public class ServicoService {
 
+    @Value("${portal.fazenda.endpoint}")
+    private String endpoint;
+
+    @Value("${portal.fazenda.dados.class}")
+    private String dadosClass;
+
     @Autowired
     private ServicoRepository servicoRepository;
 
@@ -34,14 +40,13 @@ public class ServicoService {
     @Autowired
     private ServicoHistoricoService servicoHistoricoService;
 
-    @PostConstruct
-    private void init() {
+    public void synchronize() {
 
         try {
 
-            var doc = Jsoup.connect("http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx").get();
+            var doc = Jsoup.connect(endpoint).get();
 
-            var tabela = doc.body().getElementsByClass("tabelaListagemDados").first();
+            var tabela = doc.body().getElementsByClass(dadosClass).first();
 
             var linhas = tabela.getElementsByTag("tr").iterator();
 
@@ -66,6 +71,8 @@ public class ServicoService {
 
     private List<ServicoHistorico> toHistorico(List<List<String>> status, List<Servico> servicos) {
 
+        LocalDateTime dhHistorico = LocalDateTime.now();
+
         List<ServicoHistorico> historicos = new ArrayList<>();
 
         for (List<String> list : status) {
@@ -81,7 +88,7 @@ public class ServicoService {
                 servicoHistorico.setAutorizador(autorizador);
                 servicoHistorico.setServico(servico);
                 servicoHistorico.setStatus(servicoStatus);
-                servicoHistorico.setDhHistorico(LocalDateTime.now());
+                servicoHistorico.setDhHistorico(dhHistorico);
 
                 historicos.add(servicoHistorico);
             }
