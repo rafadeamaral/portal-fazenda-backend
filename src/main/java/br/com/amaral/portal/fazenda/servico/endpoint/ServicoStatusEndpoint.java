@@ -1,6 +1,6 @@
 package br.com.amaral.portal.fazenda.servico.endpoint;
 
-import br.com.amaral.portal.fazenda.servico.domain.ServicoHistoricoWrapper;
+import br.com.amaral.portal.fazenda.servico.wrapper.ServicoHistoricoWrapper;
 import br.com.amaral.portal.fazenda.servico.service.ServicoHistoricoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
