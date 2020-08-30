@@ -2,8 +2,8 @@ package br.com.amaral.portal.fazenda.core.servico.endpoint;
 
 import br.com.amaral.portal.fazenda.core.autorizador.domain.Autorizador;
 import br.com.amaral.portal.fazenda.core.autorizador.service.AutorizadorService;
+import br.com.amaral.portal.fazenda.core.servico.domain.ServicoHistorico;
 import br.com.amaral.portal.fazenda.core.servico.service.ServicoHistoricoService;
-import br.com.amaral.portal.fazenda.core.servico.wrapper.ServicoHistoricoWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -26,19 +26,19 @@ public class ServicoStatusEndpoint {
     private AutorizadorService autorizadorService;
 
     @GetMapping
-    public ResponseEntity<List<ServicoHistoricoWrapper>> findByStatusAtual() {
+    public ResponseEntity<List<ServicoHistorico>> findByStatusAtual() {
 
         return ResponseEntity.ok(servicoHistoricoService.findByStatusAtual());
     }
 
     @GetMapping("autorizador")
-    public ResponseEntity<ServicoHistoricoWrapper> findByAutorizador(@RequestParam String dsAutorizador) {
+    public ResponseEntity<List<ServicoHistorico>> findByAutorizador(@RequestParam String dsAutorizador) {
 
         return ResponseEntity.ok(servicoHistoricoService.findByAutorizador(dsAutorizador));
     }
 
     @GetMapping("perido")
-    public ResponseEntity<List<ServicoHistoricoWrapper>> findByPeriodo(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhInicio,
+    public ResponseEntity<List<ServicoHistorico>> findByPeriodo(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhInicio,
                                                                     @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhFim) {
 
         return ResponseEntity.ok(servicoHistoricoService.findByPeriodo(dhInicio, dhFim));
