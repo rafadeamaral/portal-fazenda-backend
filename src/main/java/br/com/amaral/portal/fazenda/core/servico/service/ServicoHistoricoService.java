@@ -31,7 +31,7 @@ public class ServicoHistoricoService {
 
     public List<ServicoHistorico> findByPeriodo(LocalDateTime dhInicio, LocalDateTime dhFim) {
 
-        return servicoHistoricoRepository.findByDhHistoricoBetweenOrderByDhHistoricoDesc(dhInicio, dhFim);
+        return servicoHistoricoRepository.findByPeriodo(dhInicio, dhFim);
     }
 
 }

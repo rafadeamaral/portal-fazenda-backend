@@ -21,6 +21,7 @@ public interface ServicoHistoricoRepository extends JpaRepository<ServicoHistori
             nativeQuery = true)
     List<ServicoHistorico> findByAutorizador(Integer idAutorizador);
 
-    List<ServicoHistorico> findByDhHistoricoBetweenOrderByDhHistoricoDesc(LocalDateTime dhInicio, LocalDateTime dhFim);
+    @Query(value = "from ServicoHistorico where dhHistorico between ?1 and ?2 order by autorizador, servico, dhHistorico desc")
+    List<ServicoHistorico> findByPeriodo(LocalDateTime dhInicio, LocalDateTime dhFim);
 
 }
