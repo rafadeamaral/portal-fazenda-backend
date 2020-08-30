@@ -38,9 +38,9 @@ public class ServicoStatusEndpoint {
         return ResponseEntity.ok(servicoHistoricoService.findByAutorizador(idAutorizador));
     }
 
-    @GetMapping("perido")
+    @GetMapping("periodo")
     public ResponseEntity<List<ServicoHistorico>> findByPeriodo(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhInicio,
-                                                                    @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhFim) {
+                                                                @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhFim) {
 
         return ResponseEntity.ok(servicoHistoricoService.findByPeriodo(dhInicio, dhFim));
     }
