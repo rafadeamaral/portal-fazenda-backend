@@ -16,10 +16,10 @@ public interface ServicoHistoricoRepository extends JpaRepository<ServicoHistori
             nativeQuery = true)
     List<ServicoHistorico> findByStatusAtual();
 
-    @Query(value = "select sh.* from servico_historico sh inner join autorizador a on (a.id_autorizador = sh.id_autorizador) where " +
-            "sh.id_servico_historico in (select max(id_servico_historico) from servico_historico group by id_autorizador, id_servico) and a.ds_autorizador = :dsAutorizador",
+    @Query(value = "select * from servico_historico where id_autorizador = :idAutorizador and id_servico_historico in (" +
+            "select max(id_servico_historico) from servico_historico group by id_autorizador, id_servico)",
             nativeQuery = true)
-    List<ServicoHistorico> findByAutorizador(String dsAutorizador);
+    List<ServicoHistorico> findByAutorizador(Integer idAutorizador);
 
     List<ServicoHistorico> findByDhHistoricoBetweenOrderByDhHistoricoDesc(LocalDateTime dhInicio, LocalDateTime dhFim);
 

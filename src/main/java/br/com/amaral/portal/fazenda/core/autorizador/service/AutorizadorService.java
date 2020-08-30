@@ -36,4 +36,9 @@ public class AutorizadorService {
         return autorizadorRepository.findByIndisponibilidade(ServicoStatus.VERMELHO.ordinal(), ServicoStatus.AMARELO.ordinal());
     }
 
+    public List<Autorizador> findAll() {
+
+        return autorizadorRepository.findAll();
+    }
+
 }
