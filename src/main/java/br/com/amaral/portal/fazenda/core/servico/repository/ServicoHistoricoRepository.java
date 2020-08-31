@@ -11,14 +11,10 @@ import java.util.List;
 @Repository
 public interface ServicoHistoricoRepository extends JpaRepository<ServicoHistorico, Long> {
 
-    @Query(value = "select * from servico_historico where id_servico_historico in (" +
-            "select max(id_servico_historico) from servico_historico group by id_autorizador, id_servico)",
-            nativeQuery = true)
+    @Query(value = "from ServicoHistorico where idServicoHistorico in (select max(idServicoHistorico) from ServicoHistorico group by autorizador, servico)")
     List<ServicoHistorico> findByStatusAtual();
 
-    @Query(value = "select * from servico_historico where id_autorizador = :idAutorizador and id_servico_historico in (" +
-            "select max(id_servico_historico) from servico_historico group by id_autorizador, id_servico)",
-            nativeQuery = true)
+    @Query(value = "from ServicoHistorico where autorizador.idAutorizador = ?1 and idServicoHistorico in (select max(idServicoHistorico) from ServicoHistorico group by autorizador, servico)")
     List<ServicoHistorico> findByAutorizador(Integer idAutorizador);
 
     @Query(value = "from ServicoHistorico where dhHistorico between ?1 and ?2 order by autorizador, servico, dhHistorico desc")
