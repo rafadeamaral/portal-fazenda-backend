@@ -6,13 +6,13 @@ import br.com.amaral.portal.fazenda.core.servico.domain.Servico;
 import br.com.amaral.portal.fazenda.core.servico.domain.ServicoHistorico;
 import br.com.amaral.portal.fazenda.core.servico.domain.ServicoStatus;
 import br.com.amaral.portal.fazenda.core.servico.repository.ServicoRepository;
+import lombok.extern.log4j.Log4j2;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
+@Log4j2
 @Service
 public class ServicoService {
 
@@ -63,9 +64,9 @@ public class ServicoService {
 
             servicoHistoricoService.save(historicos);
 
-        } catch (IOException e) {
+        } catch (Exception e) {
 
-            e.printStackTrace();
+            log.error("Falha ao buscar os status dos serviços", e);
         }
     }
 
