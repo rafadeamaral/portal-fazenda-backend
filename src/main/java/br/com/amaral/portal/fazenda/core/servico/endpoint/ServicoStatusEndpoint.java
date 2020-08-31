@@ -5,6 +5,8 @@ import br.com.amaral.portal.fazenda.core.autorizador.service.AutorizadorService;
 import br.com.amaral.portal.fazenda.core.servico.domain.ServicoHistorico;
 import br.com.amaral.portal.fazenda.core.servico.service.ServicoHistoricoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,10 +41,11 @@ public class ServicoStatusEndpoint {
     }
 
     @GetMapping("periodo")
-    public ResponseEntity<List<ServicoHistorico>> findByPeriodo(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhInicio,
-                                                                @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhFim) {
+    public ResponseEntity<Page<ServicoHistorico>> findByPeriodo(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhInicio,
+                                                                @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dhFim,
+                                                                Pageable pageable) {
 
-        return ResponseEntity.ok(servicoHistoricoService.findByPeriodo(dhInicio, dhFim));
+        return ResponseEntity.ok(servicoHistoricoService.findByPeriodo(dhInicio, dhFim, pageable));
     }
 
     @GetMapping("indisponibilidade")
